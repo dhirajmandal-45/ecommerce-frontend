@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://ebcak.onrender.com";
 
 export const getToken = () => localStorage.getItem("token");
 
