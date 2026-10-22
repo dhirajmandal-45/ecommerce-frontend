@@ -1,4 +1,5 @@
-const API_BASE_URL = "https://ebcak.onrender.com";
+```javascript
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://ebcak.onrender.com";
 
 export const getToken = () => localStorage.getItem("token");
 
@@ -76,7 +77,9 @@ export const apiRequest = async (path, options = {}) => {
         const message =
             typeof data === "string"
                 ? data
-                : data?.message || data?.error || `Request failed (${response.status})`;
+                : data?.message ||
+                  data?.error ||
+                  `Request failed (${response.status})`;
 
         const error = new Error(message);
         error.status = response.status;
@@ -87,3 +90,4 @@ export const apiRequest = async (path, options = {}) => {
 };
 
 export default API_BASE_URL;
+```
